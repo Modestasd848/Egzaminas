@@ -17,6 +17,10 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  registrationDate: {
+    type: Date,
+    required: true,
+  },
 });
 
 const User = mongoose.model('User', UserSchema);

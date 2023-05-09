@@ -2,7 +2,9 @@ import User from '../models/UserModel.js';
 
 export async function getUsers(req, res) {
   try {
-    const users = await User.find();
+    const { id } = req.params;
+
+    const users = await User.find({}, { _id: 0, __v: 0 });
 
     res.status(200).json(users);
   } catch (error) {
@@ -31,9 +33,9 @@ export async function deleteUser(req, res) {
   try {
     const { id } = req.params;
 
-    const deletedClient = await User.findByIdAndDelete(id);
+    const deletedUser = await User.findByIdAndDelete(id);
 
-    res.status(200).json(deletedClient);
+    res.status(200).json(deletedUser);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -41,19 +43,19 @@ export async function deleteUser(req, res) {
 
 export async function createUser(req, res) {
   try {
-    const { name, lastName, email, registeredDate } = req.body;
+    const { name, lastName, email, registrationDate } = req.body;
 
-    const newUser = new User({
-      name,
-      lastName,
-      email,
-      registeredDate,
-    });
+    const user = await User.findOne({ email });
+    if (user) {
+      return res.status(400).json({ message: 'User already exists' });
+    }
 
-    const createdUser = await newUser.save();
+    const newUser = new User({ name, lastName, email, registrationDate });
+    await newUser.save();
 
-    res.status(201).json(createdUser);
+    return res.status(201).json({ message: 'User created successfully' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
   }
 }
