@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import './App.css';
-import NavBar from './components/atoms/NavBar/NavBar';
-import UsersInfo from './components/atoms/UsersInfo/UserInfo';
-import Users from './components/atoms/UsersList/UsersList';
-import UsersList from './components/atoms/UsersList/UsersList';
+import UserRegistration from './components/molecules/UserRegistration/UserRegistration';
+import UsersInfo from './components/molecules/UsersInfo/UserInfo';
+import UsersList from './components/molecules/UsersList/UsersList';
 
 function App() {
   const [users, setUsers] = useState([]);
 
   return (
     <div>
+      <UserRegistration />
       <UsersInfo />
+      <UsersList />
     </div>
   );
 }
