@@ -1,10 +1,10 @@
-import { StyledLink } from './NavBar.styled';
+import { StyledLink, StyledNav } from './NavBar.styled';
 
 export default function NavBar() {
   return (
-    <nav>
+    <StyledNav>
       <StyledLink to="/">Register</StyledLink>
       <StyledLink to="/">All Client</StyledLink>
-    </nav>
+    </StyledNav>
   );
 }

@@ -4,7 +4,7 @@ export async function getUsers(req, res) {
   try {
     const { id } = req.params;
 
-    const users = await User.find({}, { _id: 0, __v: 0 });
+    const users = await User.find({ userId: id }, { __v: false });
 
     res.status(200).json(users);
   } catch (error) {
@@ -34,8 +34,7 @@ export async function deleteUser(req, res) {
     const { id } = req.params;
 
     const deletedUser = await User.findByIdAndDelete(id);
-
-    res.status(200).json(deletedUser);
+    res.json(deletedUser);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -44,11 +43,6 @@ export async function deleteUser(req, res) {
 export async function createUser(req, res) {
   try {
     const { name, lastName, email, registrationDate } = req.body;
-
-    const user = await User.findOne({ email });
-    if (user) {
-      return res.status(400).json({ message: 'User already exists' });
-    }
 
     const newUser = new User({ name, lastName, email, registrationDate });
     await newUser.save();

@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import UserRegistration from './components/molecules/UserRegistration/UserRegistration';
 import UsersInfo from './components/molecules/UsersInfo/UserInfo';
-import UsersList from './components/molecules/UsersList/UsersList';
+import AdministratorLogin from './components/organism/AdministratorLogin/AdministratorLogin';
+import { RequireAuth } from './components/organism//Auth/RequireAuth';
+import { AuthProvider } from './components/organism/Auth/Auth';
 
 function App() {
-  const [users, setUsers] = useState([]);
-
   return (
-    <div>
-      <UserRegistration />
-      <UsersInfo />
-      <UsersList />
-    </div>
+    <AuthProvider>
+      <div>
+        <Routes>
+          <Route>
+            <Route index path="/login" element={<AdministratorLogin />} />
+            <Route
+              path="/users"
+              element={
+                <RequireAuth>
+                  <UsersInfo />
+                </RequireAuth>
+              }
+            />
+          </Route>
+        </Routes>
+      </div>
+    </AuthProvider>
   );
 }
 
