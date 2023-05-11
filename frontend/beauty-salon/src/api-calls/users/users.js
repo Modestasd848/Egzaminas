@@ -28,3 +28,12 @@ export async function deleteUser(user_id) {
     console.log(error);
   }
 }
+
+export async function updateUser(user_id, updatedUser) {
+  try {
+    const res = await axios.put(HOST + `/users/${user_id}`, updatedUser);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+}

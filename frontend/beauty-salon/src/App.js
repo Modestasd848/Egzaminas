@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import UsersInfo from './components/molecules/UsersInfo/UserInfo';
 import AdministratorLogin from './components/organism/AdministratorLogin/AdministratorLogin';
@@ -11,17 +11,16 @@ function App() {
     <AuthProvider>
       <div>
         <Routes>
-          <Route>
-            <Route index path="/login" element={<AdministratorLogin />} />
-            <Route
-              path="/users"
-              element={
-                <RequireAuth>
-                  <UsersInfo />
-                </RequireAuth>
-              }
-            />
-          </Route>
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<AdministratorLogin />} />
+          <Route
+            path="/users"
+            element={
+              <RequireAuth>
+                <UsersInfo />
+              </RequireAuth>
+            }
+          />
         </Routes>
       </div>
     </AuthProvider>

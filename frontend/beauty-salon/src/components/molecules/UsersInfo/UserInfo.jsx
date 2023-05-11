@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import User from '../User/User';
 import { StyledH2, StyledSection, StyledTable, StyledTr } from '../User/User.styled';
-import { getAllUsers, deleteUser } from '../../../api-calls/users/users';
+import { getAllUsers, deleteUser, updateUser } from '../../../api-calls/users/users';
 import UserRegistration from '../UserRegistration/UserRegistration';
 import { useAuth } from '../../organism/Auth/Auth';
 import { useNavigate } from 'react-router-dom';
@@ -29,6 +29,18 @@ export default function UsersInfo() {
       });
   }
 
+  function updateUserHandler(updatedUser) {
+    updateUser(updatedUser._id, updatedUser)
+      .then(() => {
+        setUsers((prevUsers) =>
+          prevUsers.map((user) => (user._id === updatedUser._id ? updatedUser : user))
+        );
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   return (
     <>
       <UserRegistration />
@@ -49,6 +61,7 @@ export default function UsersInfo() {
                   key={index}
                   user={user}
                   deleteButtonHandler={() => deleteButtonHandler(user._id)}
+                  updateUser={updateUserHandler}
                 ></User>
               );
             })}
