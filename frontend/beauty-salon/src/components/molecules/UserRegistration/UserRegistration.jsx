@@ -59,7 +59,7 @@ export default function UserRegistration() {
           />
         </div>
         <button type="button" onClick={createUser}>
-          Add
+          Add User
         </button>
       </StyledForm>
     </StyledBody>

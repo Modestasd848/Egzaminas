@@ -20,15 +20,15 @@ export default function UserUpdate({ user, onUpdate }) {
     e.preventDefault();
     try {
       const data = await updateUser(user._id, updatedUser);
-      onUpdate(data); // Informuojame tėvinį komponentą apie atnaujinimus
+      onUpdate(data);
     } catch (error) {
       console.log(error);
     }
   }
 
   return (
-    <StyledOverlay>
-      <StyledModal>
+    <StyledOverlay onClick={() => onUpdate(user)}>
+      <StyledModal onClick={(e) => e.stopPropagation()}>
         <StyledForm onSubmit={handleUpdate}>
           <StyledInput
             type="text"

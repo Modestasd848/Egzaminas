@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import User from '../User/User';
-import { StyledH2, StyledSection, StyledTable, StyledTr } from '../User/User.styled';
+import User from '../../molecules/User/User';
+import { StyledH2, StyledSection, StyledTable, StyledTr } from '../../molecules/User/User.styled';
 import { getAllUsers, deleteUser, updateUser } from '../../../api-calls/users/users';
-import UserRegistration from '../UserRegistration/UserRegistration';
-import { useAuth } from '../../organism/Auth/Auth';
+import UserRegistration from '../../molecules/UserRegistration/UserRegistration';
+import { useAuth } from '../../../Auth/Auth';
 import { useNavigate } from 'react-router-dom';
+import { StyledBody } from './UserInfo.styled';
 
 export default function UsersInfo() {
   const [users, setUsers] = useState([]);
@@ -42,7 +43,7 @@ export default function UsersInfo() {
   }
 
   return (
-    <>
+    <StyledBody>
       <UserRegistration />
       <StyledSection>
         <StyledH2>adding and adjusting customers</StyledH2>
@@ -77,6 +78,6 @@ export default function UsersInfo() {
           Log Out
         </button>
       </StyledSection>
-    </>
+    </StyledBody>
   );
 }

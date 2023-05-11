@@ -1,5 +1,5 @@
 import React from 'react';
-import { login } from '../../../api-calls/Administrator/Administrator';
+import { login } from '../api-calls/Administrator/Administrator';
 
 const AuthContext = React.createContext(null);
 

@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { StyledButton, StyledForm, StyledInput, StyledLabel } from './Administrator.styled';
-import { useAuth } from '../../organism/Auth/Auth';
+import {
+  StyledBody,
+  StyledButton,
+  StyledForm,
+  StyledInput,
+  StyledLabel,
+} from './Administrator.styled';
+import { useAuth } from '../../../Auth/Auth';
 
 export default function AdministratorLogin() {
   const [user, setUser] = useState({

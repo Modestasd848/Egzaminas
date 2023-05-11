@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 
 export const StyledSection = styled.section`
-  margin: 5% auto;
+  margin: 1% auto;
   text-align: left;
-  width: 60%;
+  width: 69.3%;
   text-align: center;
-  background-color: #8e9be5;
+  background-color: #788de2;
   padding: 7px;
 `;
 
@@ -16,6 +16,10 @@ export const StyledH2 = styled.h2`
 
 export const StyledTr = styled.tr`
   height: 2rem;
+`;
+
+export const StyledTd = styled.td`
+  background-color: white;
 `;
 
 export const StyledTable = styled.table`
