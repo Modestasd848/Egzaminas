@@ -1,39 +1,74 @@
 import styled from 'styled-components';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 
+export const StyledTr = styled.tr`
+  background-color: #f8f9fa;
+`;
+
+export const StyledButton = styled.button`
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:first-child {
+    background-color: #dc3545;
+    &:hover {
+      background-color: #c82333;
+    }
+  }
+
+  &:last-child {
+    background-color: #28a745;
+    &:hover {
+      background-color: #218838;
+    }
+  }
+`;
+
 export const StyledSection = styled.section`
   margin: 1% auto;
   text-align: left;
   width: 69.3%;
   text-align: center;
-  background-color: #788de2;
   padding: 7px;
 `;
 
-export const StyledH2 = styled.h2`
-  font-weight: 500;
-`;
-
-export const StyledTr = styled.tr`
-  height: 2rem;
-`;
+export const StyledH2 = styled.h2``;
 
 export const StyledTd = styled.td`
   background-color: white;
 `;
 
 export const StyledTable = styled.table`
-  margin: 5% auto;
-  text-align: left;
-  width: 80%;
-  background-color: #e5e5e5;
-  border-radius: 5px;
-`;
-
-export const StyledButton = styled.button`
-  padding: 0px 5px;
-  margin-left: 10px;
-  margin-top: 5px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+  }
+  th,
+  td {
+    padding: 12px 15px;
+  }
+  tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
 `;
 
 export const StyledAiFillEdit = styled(AiFillEdit)`

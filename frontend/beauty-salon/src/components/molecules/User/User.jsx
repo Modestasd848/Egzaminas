@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  StyledAiFillDelete,
-  StyledAiFillEdit,
-  StyledButton,
-  StyledTd,
-  StyledTr,
-} from './User.styled';
+import { StyledAiFillDelete, StyledAiFillEdit, StyledButton, StyledTr } from './User.styled';
 import UserUpdate from '../UserUpdate/UserUpdate';
 
 export default function User({ user, deleteButtonHandler, updateUser }) {
