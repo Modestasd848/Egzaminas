@@ -1,26 +1,48 @@
 import styled from 'styled-components';
 
-export const StyledBody = styled.section`
-  width: 60%;
-  text-align: center;
-  margin: 0 auto;
+export const StyledBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 `;
 
 export const StyledForm = styled.form`
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 20px;
-  background-color: #8e9be5;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 300px;
 `;
 
 export const StyledInput = styled.input`
-  width: 50%;
-  border: 1px solid #c1c1c1;
-  border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+`;
+
+export const StyledButton = styled.button`
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: #0056b3;
+  }
+  margin: 0 auto;
 `;
 
 export const StyledLabel = styled.label`
-  font-size: 1.4rem;
-  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+`;
+
+export const StyledInputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;

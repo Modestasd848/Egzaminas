@@ -1,33 +1,44 @@
 import styled from 'styled-components';
 
+export const StyledBody = styled.div`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://zolmi.com/assets/img/com/blog/black-hair-salon-logo.png') no-repeat
+    center center fixed;
+  background-size: cover;
+`;
+
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
-  margin: 10% auto;
-  border: 1px solid black;
-  padding: 80px 20px;
-  background-color: #e5bce2;
-`;
-
-export const StyledButton = styled.button`
-  width: 30%;
-  background-color: #3277ff;
-  border: 0px;
-  padding: 10px;
-  color: white;
-  font-weight: bold;
-  border-radius: 7px;
-`;
-
-export const StyledInput = styled.input`
-  width: 50%;
-  border: 1px solid #c1c1c1;
-  border-radius: 4px;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 10px;
 `;
 
 export const StyledLabel = styled.label`
-  font-size: 1.4rem;
-  font-weight: 500;
+  margin-bottom: 10px;
+`;
+
+export const StyledInput = styled.input`
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+`;
+
+export const StyledButton = styled.button`
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: #0056b3;
+  }
 `;

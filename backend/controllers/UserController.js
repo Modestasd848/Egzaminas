@@ -15,11 +15,11 @@ export async function getUsers(req, res) {
 export async function updateUser(req, res) {
   try {
     const { id } = req.params;
-    const { name, surname, email, registeredDate } = req.body;
+    const { name, lastName, email, registrationDate } = req.body;
 
     const updatedClient = await User.findByIdAndUpdate(
       id,
-      { name, surname, email, registeredDate },
+      { name, lastName, email, registrationDate },
       { new: true }
     );
 
