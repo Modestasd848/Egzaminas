@@ -40,8 +40,13 @@ export default function UsersInfo() {
     }
   }
 
-  function addUser(newUser) {
-    setUsers([...users, newUser]);
+  async function createUser(user) {
+    try {
+      const { newUser } = await registerNewUser(user);
+      setUsers([...users, newUser]);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function updateUserHandler(updatedUser) {
@@ -58,15 +63,16 @@ export default function UsersInfo() {
 
   return (
     <StyledBody>
-      <UserRegistration onAddUser={addUser} />
+      <UserRegistration onAddUser={(newUser) => createUser(newUser)} />
       <StyledSection>
-        <StyledH2>Adding and Adjusting Customers</StyledH2>
+        {/* <StyledH2>Adding and Adjusting Customers</StyledH2> */}
         <StyledTable>
           <thead>
             <StyledTr>
-              <th>Customer's First and Last Name</th>
+              <th>First and Last Name</th>
               <th>Email</th>
               <th>Registration Date and Time</th>
+              <th></th>
             </StyledTr>
           </thead>
           <tbody>
