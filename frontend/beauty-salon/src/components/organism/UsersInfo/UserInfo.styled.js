@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const StyledBody = styled.div`
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, #007bff, #33bbff);
+  background: #f9f9f9;
 `;
 
 export const StyledSection = styled.section`
@@ -23,7 +22,7 @@ export const StyledLogoutButton = styled.button`
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: #009879;
   color: white;
   cursor: pointer;
   &:hover {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   StyledBody,
   StyledButton,
@@ -7,9 +7,8 @@ import {
   StyledInputGroup,
   StyledLabel,
 } from './UserRegistration.styled';
-import { registerNewUser, getAllUsers } from '../../../api-calls/users/users';
 
-export default function UserRegistration() {
+export default function UserRegistration({ onAddUser }) {
   const [user, setUser] = useState({
     name: '',
     lastName: '',
@@ -17,32 +16,9 @@ export default function UserRegistration() {
     registrationDate: '',
   });
 
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    getAllUsers()
-      .then((data) => setUsers(data))
-      .catch((error) => console.log(error));
-  }, []);
-
-  async function createUser() {
-    try {
-      await registerNewUser(user);
-      setUsers([...users, user]); // Pridedame naują vartotoją prie vartotojų sąrašo
-      setUser({
-        name: '',
-        lastName: '',
-        email: '',
-        registrationDate: '',
-      }); // Išvalome formos laukus
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   return (
     <StyledBody>
-      <h2>New Client Registration</h2>
+      <h2>New Customer Registration</h2>
       <StyledForm>
         <StyledInputGroup>
           <StyledLabel htmlFor="name">Name</StyledLabel>
@@ -80,8 +56,19 @@ export default function UserRegistration() {
             onChange={(e) => setUser({ ...user, registrationDate: e.target.value })}
           />
         </StyledInputGroup>
-        <StyledButton type="button" onClick={createUser}>
-          Add User
+        <StyledButton
+          type="button"
+          onClick={() => {
+            onAddUser(user);
+            setUser({
+              name: '',
+              lastName: '',
+              email: '',
+              registrationDate: '',
+            });
+          }}
+        >
+          Add Customer
         </StyledButton>
       </StyledForm>
     </StyledBody>

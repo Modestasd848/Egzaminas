@@ -16,14 +16,14 @@ export const StyledButton = styled.button`
   transition: background-color 0.2s ease;
 
   &:first-child {
-    background-color: #dc3545;
+    background-color: #009879;
     &:hover {
-      background-color: #c82333;
+      background-color: #009879;
     }
   }
 
   &:last-child {
-    background-color: #28a745;
+    background-color: #ff726f;
     &:hover {
       background-color: #218838;
     }
@@ -34,7 +34,6 @@ export const StyledSection = styled.section`
   margin: 1% auto;
   text-align: left;
   width: 69.3%;
-  text-align: center;
   padding: 7px;
 `;
 
@@ -72,11 +71,11 @@ export const StyledTable = styled.table`
 `;
 
 export const StyledAiFillEdit = styled(AiFillEdit)`
-  color: orange;
+  color: white;
   vertical-align: top;
 `;
 
 export const StyledAiFillDelete = styled(AiFillDelete)`
-  color: red;
+  color: white;
   vertical-align: top;
 `;
