@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import User from '../../molecules/User/User';
-import { StyledH2, StyledSection, StyledTable, StyledTr } from '../../molecules/User/User.styled';
+import { StyledSection, StyledTable, StyledTr } from '../../molecules/User/User.styled';
 import {
   getAllUsers,
   deleteUser,
@@ -65,7 +65,6 @@ export default function UsersInfo() {
     <StyledBody>
       <UserRegistration onAddUser={(newUser) => createUser(newUser)} />
       <StyledSection>
-        {/* <StyledH2>Adding and Adjusting Customers</StyledH2> */}
         <StyledTable>
           <thead>
             <StyledTr>
